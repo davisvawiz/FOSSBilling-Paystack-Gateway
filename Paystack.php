@@ -396,72 +396,101 @@ class Payment_Adapter_Paystack implements FOSSBilling\InjectionAwareInterface
     }
 
     protected function _generateForm(
-        Model_Invoice $invoice
-    )
-    {
-        $reference =
-            uniqid(
-                'FB_'
-            );
+    protected function _generateForm(
+    Model_Invoice $invoice
+)
+{
+    /*
+    Prevent payment page if invoice already paid
+    */
 
-        $tx =
-            $this->di['db']
-            ->dispense(
-                'Transaction'
-            );
-
-        $tx->invoice_id =
-            $invoice->id;
-
-        $tx->txn_id =
-            $reference;
-
-        $tx->status =
-            'received';
-
-        $tx->created_at =
-            date(
-                'Y-m-d H:i:s'
-            );
-
-        $tx->updated_at =
-            date(
-                'Y-m-d H:i:s'
-            );
-
-        $this->di['db']
-            ->store(
-                $tx
-            );
-
-        $payGateway =
-            $this->di['db']
-            ->findOne(
-                'PayGateway',
-                'gateway="Paystack"'
-            );
-
-        $gatewayService =
-            $this->di['mod_service'](
-                'Invoice',
-                'PayGateway'
-            );
-
-        $callback =
-            $gatewayService
-            ->getCallbackUrl(
-                $payGateway,
-                $invoice
-            );
-
-        $redirect =
-            $this->di['tools']
-            ->url(
-                'invoice/'.
-                $invoice->hash
-            );
+    if (
+        strtolower($invoice->status)
+        == 'paid'
+    ) {
 
         return '
+
+<div class="alert alert-success">
+Invoice already paid.
+Redirecting...
+</div>
+
+<script>
+
+window.location.replace(
+"'.$this->di['tools']->url('client').'"
+);
+
+</script>
+
+';
+
+    }
+
+    $reference =
+        uniqid(
+            'FB_'
+        );
+
+    $tx =
+        $this->di['db']
+        ->dispense(
+            'Transaction'
+        );
+
+    $tx->invoice_id =
+        $invoice->id;
+
+    $tx->txn_id =
+        $reference;
+
+    $tx->status =
+        'received';
+
+    $tx->created_at =
+        date(
+            'Y-m-d H:i:s'
+        );
+
+    $tx->updated_at =
+        date(
+            'Y-m-d H:i:s'
+        );
+
+    $this->di['db']
+        ->store(
+            $tx
+        );
+
+    $payGateway =
+        $this->di['db']
+        ->findOne(
+            'PayGateway',
+            'gateway="Paystack"'
+        );
+
+    $gatewayService =
+        $this->di['mod_service'](
+            'Invoice',
+            'PayGateway'
+        );
+
+    $callback =
+        $gatewayService
+        ->getCallbackUrl(
+            $payGateway,
+            $invoice
+        );
+
+    $redirect =
+        $this->di['tools']
+        ->url(
+            'invoice/' .
+            $invoice->hash
+        );
+
+    return '
 
 <script src="https://js.paystack.co/v1/inline.js"></script>
 
@@ -477,7 +506,7 @@ Pay Now
 
 function payWithPaystack(){
 
-let handler=
+let handler =
 PaystackPop.setup({
 
 key:"'.$this->publicKey.'",
@@ -507,17 +536,27 @@ response=>response.json()
 
 .then(data=>{
 
-window.location=
-"'.$redirect.'";
+window.location.replace(
+"'.$redirect.'"
+);
 
 })
 
 .catch(error=>{
 
-window.location=
-"'.$redirect.'";
+window.location.replace(
+"'.$redirect.'"
+);
 
 });
+
+},
+
+onClose:function(){
+
+console.log(
+"Payment cancelled"
+);
 
 }
 
@@ -527,8 +566,8 @@ handler.openIframe();
 
 }
 
-</script>';
+</script>
 
-    }
-
+';
+}
 }

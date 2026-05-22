@@ -8,7 +8,7 @@
  * @author Davis Vawiz
  * @link https://github.com/davisvawiz
  * @link https://davisvawiz.space
- * version:1.0.0
+ * version:1.1.0
  *
  * @copyright 2026 Davis Vawiz
  * @license Apache-2.0

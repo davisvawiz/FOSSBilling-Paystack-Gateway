@@ -71,7 +71,7 @@ Customer redirected back to invoice page
 ### 1. Clone repository
 
 ```bash
-git clone https://github.com/davisvawiz/fossbilling-paystack.git
+git clone https://github.com/davisvawiz/FOSSBilling-Paystack-Gateway.git
 ```
 
 ### 2. Copy gateway file

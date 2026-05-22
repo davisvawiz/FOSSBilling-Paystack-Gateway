@@ -1,0 +1,13 @@
+{
+    "name": "davisvawiz/fossbilling-paystack",
+    "description": "Paystack payment gateway integration for FOSSBilling",
+    "type": "project",
+    "license": "Apache-2.0",
+    "authors": [
+        {
+            "name": "Davis Vawiz",
+            "homepage": "https://davisvawiz.space"
+        }
+    ],
+    "require": {}
+}

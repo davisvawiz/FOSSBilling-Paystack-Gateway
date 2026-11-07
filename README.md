@@ -1,95 +1,94 @@
 Respiratory – FOSSBilling Paystack Gateway
 
-"License" (https://img.shields.io/badge/License-Apache%202.0-blue.svg)
-"PHP" (https://img.shields.io/badge/PHP-%3E%3D8.0-777BB4)
-"FOSSBilling" (https://img.shields.io/badge/FOSSBilling-0.8.9-success)
-"Status" (https://img.shields.io/badge/Status-Working-brightgreen)
-"Maintenance" (https://img.shields.io/badge/Maintained-Yes-brightgreen)
-"Contributions" (https://img.shields.io/badge/Contributions-Welcome-orange)
-"Paystack" (https://img.shields.io/badge/Paystack-Integrated-00C3F7)
+<p align="center">
+  <img src="https://davihost.com/logo.png" alt="DaviHost" width="150">
+</p><p align="center">
+  <strong>A modern Paystack payment gateway for FOSSBilling.</strong>
+  <br>
+  Secure payments. Automated invoice settlement. Beautiful checkout experience.
+</p><p align="center">
+  <img src="https://img.shields.io/badge/License-Apache%202.0-blue?style=for-the-badge" alt="Apache 2.0">
+  <img src="https://img.shields.io/badge/PHP-8.0%2B-777BB4?style=for-the-badge&logo=php&logoColor=white" alt="PHP 8.0+">
+  <img src="https://img.shields.io/badge/FOSSBilling-0.8.9-success?style=for-the-badge" alt="FOSSBilling 0.8.9">
+</p><p align="center">
+  <img src="https://img.shields.io/badge/Status-Working-brightgreen?style=for-the-badge" alt="Working">
+  <img src="https://img.shields.io/badge/Paystack-Integrated-00C3F7?style=for-the-badge&logo=paystack&logoColor=white" alt="Paystack">
+  <img src="https://img.shields.io/badge/Contributions-Welcome-orange?style=for-the-badge" alt="Contributions welcome">
+</p>---
 
-A modern Paystack payment gateway for FOSSBilling, designed to deliver secure transactions, reliable invoice processing, and a smooth customer checkout experience.
+📖 About
 
-Respiratory brings Paystack payments directly into FOSSBilling, allowing customers to pay invoices through Paystack's secure checkout while FOSSBilling handles transaction verification, payment confirmation, and invoice settlement.
+Respiratory is a Paystack payment gateway integration developed for FOSSBilling.
 
----
+It brings Paystack's secure payment infrastructure into FOSSBilling, allowing customers to pay invoices conveniently through Paystack's checkout popup.
+
+The integration handles server-side transaction verification, automatic invoice settlement, transaction validation, and customer redirects.
+
+Built with reliability, security, and customer experience in mind.
 
 ✨ Features
 
-- Paystack Checkout: Convenient popup-based payment experience.
-- Secure Payment Verification: Server-side verification against the Paystack API.
-- Automatic Invoice Settlement: Automatically processes successful payments and updates invoice status.
-- Smart Redirects: Returns customers to their invoice after payment confirmation.
-- Beautiful Confirmation Experience: Modern, animated payment confirmation screen with a premium visual design.
-- Duplicate Payment Protection: Helps prevent repeated transaction processing.
-- Amount Validation: Verifies that the received payment matches the expected invoice amount.
-- Currency Validation: Checks transaction currency against the invoice currency.
-- Test and Live Modes: Configure separate Paystack API credentials for testing and production.
-- FOSSBilling Integration: Uses FOSSBilling's native payment-processing workflow.
+- 💳 Paystack popup checkout integration.
+- 🔐 Secure server-side transaction verification.
+- ⚡ Automatic invoice payment processing.
+- ✅ Automatic invoice status updates after successful payment.
+- 🔄 Automatic customer redirection after payment.
+- 🎨 Beautiful animated payment confirmation screen.
+- 🛡️ Duplicate transaction protection.
+- 💰 Invoice amount verification.
+- 🌍 Currency validation.
+- 🧾 FOSSBilling-native transaction processing.
+- 🧪 Separate test and live API credentials.
+- 📱 Responsive payment confirmation experience.
 
----
+🎬 See It In Action
 
-🚀 Compatibility
-
-Component| Requirement
-FOSSBilling| 0.8.9
-PHP| 8.0 or newer
-Payment Provider| Paystack
-Payment Type| One-time payments
-Checkout| Paystack Popup
-License| Apache 2.0
-
----
-
-💳 See How It Works
-
-Want to see the integration in action?
+Want to see how the integration works?
 
 Visit our live demonstration:
 
-"https://my.davihost.com/" (https://my.davihost.com/)
+<p align="center">
+  <a href="https://my.davihost.com/">
+    <img src="https://img.shields.io/badge/LIVE%20DEMO-See%20Paystack%20Integration-00C3F7?style=for-the-badge" alt="Live Demo">
+  </a>
+</p>https://my.davihost.com/
 
-Experience the invoice payment workflow and see how Paystack integrates into the FOSSBilling customer experience.
+Experience the FOSSBilling invoice payment workflow and Paystack checkout integration.
 
----
+🔄 How It Works
 
-🔄 Payment Workflow
+The payment workflow is designed to provide a seamless experience from checkout to invoice settlement.
 
-Customer opens an unpaid invoice
-             |
-             v
-       Clicks Pay Now
-             |
-             v
-    Paystack checkout popup
-             |
-             v
-    Customer completes payment
-             |
-             v
-   Paystack transaction verification
-             |
-             v
-   FOSSBilling IPN processing
-             |
-             v
-    Transaction validation
-             |
-             v
-      Invoice settlement
-             |
-             v
-    Invoice marked as PAID
-             |
-             v
-   Animated confirmation screen
-             |
-             v
-    Redirect to paid invoice
+Customer opens an invoice
+          |
+          v
+      Clicks Pay Now
+          |
+          v
+   Paystack popup opens
+          |
+          v
+ Customer completes payment
+          |
+          v
+ Server verifies transaction
+          |
+          v
+ FOSSBilling receives IPN
+          |
+          v
+ Transaction is validated
+          |
+          v
+ Invoice is automatically paid
+          |
+          v
+ Animated confirmation screen
+          |
+          v
+ Customer returns to invoice
 
-The integration uses server-side payment verification rather than trusting the browser's success callback alone.
-
----
+Successful popup completion alone does not mark an invoice as paid. Payment must first be verified and processed by FOSSBilling.
 
 📦 Installation
 
@@ -129,33 +128,37 @@ Payment Gateways
     |
 Paystack
     |
-Configure API Credentials
+Configure API Keys
     |
 Enable
 
-5. Clear cache
+5. Clear the cache
 
-Clear your FOSSBilling cache after installing or updating the adapter.
+Clear your FOSSBilling cache after installing or updating the gateway.
 
-Your Paystack gateway should now be available to customers during invoice checkout.
-
----
+Paystack should now be available as a payment option during invoice checkout.
 
 ⚙️ Configuration
 
-The gateway supports separate credentials for test and live environments.
+Configure your Paystack API credentials inside the FOSSBilling administrator panel.
 
-Configuration| Description
+Setting| Description
 Live Public Key| Paystack live public key
 Live Secret Key| Paystack live secret key
 Test Public Key| Paystack test public key
 Test Secret Key| Paystack test secret key
 
-Recommended: Start with Paystack test credentials and complete a full invoice payment before switching to live mode.
+Recommended: Start with test credentials and complete a full invoice payment before switching to live mode.
 
 Never expose your Paystack secret key in frontend JavaScript or public repositories.
 
----
+📋 Requirements
+
+- FOSSBilling 0.8.9
+- PHP 8.0 or newer
+- A Paystack merchant account
+- Valid Paystack API credentials
+- PHP cURL extension enabled
 
 🔐 Security and Reliability
 
@@ -163,47 +166,43 @@ Payment security and accurate invoice settlement are essential.
 
 Respiratory incorporates:
 
-- Server-side transaction verification.
+- Server-side Paystack transaction verification.
 - Secret-key-based API authentication.
 - Invoice amount validation.
 - Currency validation.
-- Transaction reference verification.
+- Transaction reference validation.
 - Duplicate transaction protection.
 - FOSSBilling-native payment processing.
 - Controlled payment confirmation and redirects.
 
-Successful popup completion alone does not mark an invoice as paid. The transaction must pass server-side verification and FOSSBilling payment processing.
-
----
+The gateway does not rely solely on the browser's payment-success callback to establish payment completion.
 
 🛠️ Troubleshooting
 
-Payment popup does not open
+Paystack popup does not open
 
-- Confirm that Paystack's JavaScript library loads.
-- Check browser console errors.
-- Ensure your public key is correctly configured.
+- Check whether Paystack's JavaScript library loads.
+- Check your browser console for JavaScript errors.
+- Verify your public API key.
 
 Payment succeeds but invoice remains unpaid
 
 - Check FOSSBilling transaction records.
 - Inspect the payment verification response.
 - Check FOSSBilling application logs.
-- Confirm that the notification/IPN request is being processed successfully.
+- Confirm that the notification/IPN request is processed successfully.
 
 Customer is not redirected
 
-- Check the browser console.
-- Verify that the FOSSBilling notification endpoint responds correctly.
+- Check browser console errors.
+- Verify the FOSSBilling notification endpoint.
 - Check the invoice return URL.
 
-For bugs and technical assistance, please open an issue in this repository.
-
----
+For bugs or technical assistance, please open an issue in this repository.
 
 🗺️ Roadmap
 
-Potential future improvements:
+Potential future enhancements:
 
 - [ ] Enhanced webhook integration.
 - [ ] Subscription payment support.
@@ -213,13 +212,11 @@ Potential future improvements:
 - [ ] Additional gateway configuration options.
 - [ ] Further checkout experience improvements.
 
----
-
 🤝 Contributing
 
 Contributions are welcome!
 
-Whether you're fixing bugs, improving security, enhancing the checkout experience, or adding new functionality, your contributions are appreciated.
+Whether you are fixing bugs, improving security, enhancing the checkout experience, or adding new functionality, your contributions are appreciated.
 
 You can contribute by:
 
@@ -231,20 +228,16 @@ You can contribute by:
 
 Together, we can make Paystack integration better for the FOSSBilling community.
 
----
-
 👨‍💻 Author
 
 Davis Vawiz
 
 Developer and maintainer of Respiratory – FOSSBilling Paystack Gateway.
 
-- Website: "davisvawiz.space" (https://davisvawiz.space/)
-- GitHub: "github.com/davisvawiz" (https://github.com/davisvawiz)
+- 🌐 Website: https://davisvawiz.space/
+- 🐙 GitHub: https://github.com/davisvawiz
 
----
-
-🌐 Recommended: DaviHost
+🌐 Recommended Hosting – DaviHost
 
 Looking for reliable hosting for your website or business?
 
@@ -254,13 +247,11 @@ Check out DaviHost, a hosting service by Davis Vawiz.
   <a href="https://davihost.com/">
     <img src="https://davihost.com/logo.png" alt="DaviHost Logo" width="190">
   </a>
-</p><p align="center">
+  <br>
   <strong>Build. Host. Grow.</strong>
   <br>
   <a href="https://davihost.com/">Visit DaviHost →</a>
-</p>---
-
-📄 License
+</p>📄 License
 
 This project is licensed under the Apache License 2.0.
 

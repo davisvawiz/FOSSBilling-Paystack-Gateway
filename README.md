@@ -1,7 +1,7 @@
 Respiratory – FOSSBilling Paystack Gateway
 
 <p align="center">
-  <img src="https://davihost.com/logo.png" alt="DaviHost" width="150">
+  <img src="https://tukuz.com/wp-content/uploads/2020/10/paystack-logo-vector.png" alt="DaviHost" width="150">
 </p><p align="center">
   <strong>A modern Paystack payment gateway for FOSSBilling.</strong>
   <br>

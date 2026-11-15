@@ -245,7 +245,7 @@ Check out DaviHost, a hosting service by Davis Vawiz.
 
 <p align="center">
   <a href="https://davihost.com/">
-    <img src="https://davihost.com/logo.png" alt="DaviHost Logo" width="190">
+    <img src="https://ke.davihost.com/logo.png" alt="DaviHost Logo" width="190">
   </a>
   <br>
   <strong>Build. Host. Grow.</strong>
